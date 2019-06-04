@@ -15,33 +15,37 @@ void increment_reg(int *reg) {
 }
 
 void add_a_to_c() {
+  printf("\nAdding A to C\n");
   while(1 == 1) {
     if(A == 0) {
       break;
     } else {
+      printf("C := %d | A := %d\n", C, A);
       increment_reg(&C);
+      printf("C := %d | A := %d\n", C, A);
       decrement_reg(&A);
+      printf("C := %d | A := %d\n", C, A);
     }
   }
 }
 
 void add_b_to_a_with_d() {
+  printf("\nAdding B to A with D\n");
   set_0_to_reg('D', &D);
-  printf("B := %d\n", B);
-  printf("A := %d\n", A);
-  printf("D := %d\n", D);
+  
   while(1 == 1) {
     if(B == 0) {
       break;
     } else {
+      printf("B := %d | A := %d | D := %d\n", B, A, D);
       increment_reg(&A);
+      printf("B := %d | A := %d | D := %d\n", B, A, D);
       increment_reg(&D);
+      printf("B := %d | A := %d | D := %d\n", B, A, D);
       decrement_reg(&B);
+      printf("B := %d | A := %d | D := %d\n", B, A, D);
     }
   }
-  printf("B := %d\n", B);
-  printf("A := %d\n", A);
-  printf("D := %d\n", D);
 
   while(1 == 1) {
     if(D == 0) {
@@ -51,19 +55,14 @@ void add_b_to_a_with_d() {
       decrement_reg(&D);
     }
   }
-  printf("B := %d\n", B);
-  printf("A := %d\n", A);
-  printf("D := %d\n", D);
 }
 
 void set_0_to_reg(char name, int *reg) {
-  printf("%c := %d\n", name, *reg);
   while(1 == 1) {
     if(*reg == 0) {
       break;
     } else {
       decrement_reg(&reg);
-      printf("%c := %d\n", name, *reg);
       if(*reg == 0) {
         break;
       }
@@ -72,7 +71,7 @@ void set_0_to_reg(char name, int *reg) {
 }
 
 void set_n_to_reg(char name, int *reg, int number) {
-  printf("%c := %d\n", name, *reg);
+  printf("\nSetting %c to %d\n", name, number);
   set_0_to_reg(name, reg);
   
   int cont = number;
@@ -93,6 +92,7 @@ void set_n_to_reg(char name, int *reg, int number) {
 }
 
 void mult_a_with_b_with_c_and_d() {
+  printf("\nMult A with B with C and D");
   set_0_to_reg('C', &C);
   add_a_to_c(&A, &C);
   
